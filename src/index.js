@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-const Person = () => {
-  const name = 'Noam';
+class Person extends Component {
+  name = 'Noam'
 
-  return (
-    <>
-      <h1>{name}</h1>
-      <p> est un garçon</p>
-    </>
-  )
+  render() {
+    return (
+      <>
+        <h1>{this.name}</h1>
+        <p> est un garçon</p>
+      </>
+    )
+  }
 }
 
 ReactDOM.render(<Person />, document.getElementById('root'));
