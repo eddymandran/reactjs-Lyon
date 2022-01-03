@@ -1,23 +1,23 @@
 import { useState } from "react";
 
-// const App = () => {
-//   let name = 'Amel';
-
-//   setTimeout(() => {
-//     console.log(name);
-//     name = 'Noam'
-//     console.log(name);
-//   }, 1000);
-
-//   return <h3>Hello {name}</h3>
-// }
-
 const App = () => {
-  let [name, setName] = useState('Amel');
+  const persons = ['Khalid', 'Amel', 'Noam'];
 
-  setTimeout(() => setName('Noam'), 3000)
+  let foreach = persons.forEach(person => { return person +'-------'  });
+  let mapped = persons.map(person => { return person + ' -------' });
+  let filtered = persons.filter((person, index) => {
+    return index !== 1
+  });
+  
+  console.log(filtered);
 
-  return  <h3>Hello {name}</h3>
+  return (
+    <ul>
+      {persons.map((person, index) => {
+        return <li key={index}>{ person }</li>
+      })}
+    </ul>
+  );
 }
 
 export default App;
