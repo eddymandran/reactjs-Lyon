@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Person(){
-    return <h1>Eddy</h1>
+const Person = () => {
+  const name = 'Noam';
+
+  return (
+    <>
+      <h1>{name}</h1>
+      <p> est un garçon</p>
+    </>
+  )
 }
 
-ReactDOM.render(<Person />, document.getElementById('root'))
+ReactDOM.render(<Person />, document.getElementById('root'));
