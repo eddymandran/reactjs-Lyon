@@ -1,4 +1,5 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Card from "./Card";
 
 const About = () => {
     const persons = [
@@ -11,14 +12,7 @@ const About = () => {
         <>
             {persons.map((person, index) => {
                 return (
-                    <div key={index} className="card" style={{width: "18rem"}}>
-                        <img src="..." className="card-img-top" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">{person.name}</h5>
-                            <p className="card-text">{ person.age }</p>
-                            <Link to={'/about/' + person.name} className="btn btn-primary">Go</Link>
-                        </div>
-                    </div>
+                    <Card key={index} title={person.name} subtitle={person.age} cta={'/about/' + person.name} />
                 )
             })}
 

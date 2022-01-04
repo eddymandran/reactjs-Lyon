@@ -1,10 +1,11 @@
 import {useParams} from 'react-router-dom'
-
+import Card from './Card';
 
 const AboutName = () => {
     const params = useParams();
+
     return (
-        <h3>Hello {params.name}</h3>
+        <Card title={params.name} />
     )
 }
 
