@@ -1,3 +1,5 @@
+import { Link, Outlet } from "react-router-dom";
+
 const About = () => {
     const persons = [
         { name: 'Khalid', age: 25 },
@@ -6,18 +8,27 @@ const About = () => {
     ];
 
     return (
-        persons.map((person, index) => {
-            return (
-                <div key={index} className="card" style={{width: "18rem"}}>
-                    <img src="..." className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">{person.name}</h5>
-                        <p className="card-text">{ person.age }</p>
-                        <a href="/#" className="btn btn-primary">Go somewhere</a>
+        <>
+            {persons.map((person, index) => {
+                return (
+                    <div key={index} className="card" style={{width: "18rem"}}>
+                        <img src="..." className="card-img-top" alt="..." />
+                        <div className="card-body">
+                            <h5 className="card-title">{person.name}</h5>
+                            <p className="card-text">{ person.age }</p>
+                            <Link to={'/about/' + person.name} className="btn btn-primary">Go</Link>
+                        </div>
                     </div>
-                </div>
-            )
-        })
+                )
+            })}
+
+            <hr />
+            <hr />
+            <hr />
+            <hr />
+
+            <Outlet />
+        </>
     )
 }
 

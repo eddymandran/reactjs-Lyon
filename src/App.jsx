@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import NotFound from './components/NotFound';
 import NavBar from './components/NavBar';
 import AboutName from './components/AboutName';
-import NotFoundAbout from "./components/NotFoundAbout";
+import NotFoundAbout from './components/NotFoundAbout';
 
 const App = () => {
     return (
@@ -15,15 +15,17 @@ const App = () => {
                 <div className="row">
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/about/:name" element={<AboutName />} />
 
-                        {/* pour avoir une 404 sur une URL precise */}
-                        <Route path="/about/:name/*" element={<NotFoundAbout />} />
+                        <Route path="/about" element={<About />}>
+                            <Route index element={<Home />} />
+                            <Route path="/about/:name" element={<AboutName />} />
+                            <Route path="/about/:name/toto" element={<NotFound />} />
+                        </Route>
+
+                        <Route path="/about/*" element={<NotFoundAbout />} />
 
                         <Route path="/contact" element={<Contact />} />
 
-                        {/* pour avoir une 404 sur toutes les autres URL */}
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
