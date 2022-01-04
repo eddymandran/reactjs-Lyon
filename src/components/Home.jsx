@@ -1,10 +1,10 @@
-import data from "../data/product.json"
+import data from "../data/product.js"
 import {Link} from "react-router-dom";
 
 const Home = () => {
     return (
         <>
-            {data.map((product, index) => {
+            {data.product.map((product, index) => {
                 return (
                     <div key={index} className="card" style={{width: "18rem"}}>
                         <img src={product.picture} className="card-img-top" alt="..." />
@@ -25,4 +25,4 @@ const Home = () => {
 export default Home;
 
 /** @TP */
-/** @todo Afficher le contenu du product.json dans notre Home en dupliquant le composant de About */
+/** @todo Afficher le contenu du product.js dans notre Home en dupliquant le composant de About */

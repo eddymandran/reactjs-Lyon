@@ -1,4 +1,5 @@
-[
+const data = {
+  "product": [
     {
       "id": 1,
       "name": "Bike",
@@ -28,3 +29,5 @@
       "picture": "https://upload.wikimedia.org/wikipedia/commons/1/17/World%27s_First_Computer%2C_the_Electronic_Numerical_Integrator_and_Calculator_%28ENIAC%29.gif"
     }
   ]
+}
+export default data
