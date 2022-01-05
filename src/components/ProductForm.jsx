@@ -16,7 +16,7 @@ const ProductForm = () => {
         })
             .then(response => response.json())
             .then(() => {
-                setForm({name: '', price: '', stock: '', picture: ''});
+                setForm({ name: 'Khalid', email: '', message: '' });
                 navigate('/admin/product')
             })
             .catch(error => console.error(error));

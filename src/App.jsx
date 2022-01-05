@@ -9,6 +9,7 @@ import NotFoundAbout from './components/NotFoundAbout';
 import ProductDetails from './components/ProductDetails';
 import ContactList from './components/ContactList';
 import ProductList from './components/ProductList';
+import ProductForm from "./components/ProductForm";
 
 
 
@@ -32,7 +33,10 @@ const App = () => {
                         <Route path="/admin/contact/:id/edit" element={<Contact />} />
                         <Route path="/admin/contact" element={<ContactList />} />
 
-                        <Route path="/admin/product" element={<ProductList />} />
+                        <Route path="/admin/product" element={<ProductList />}>
+                            <Route path="/admin/product/new" element={<ProductForm />} />
+                            <Route path="/admin/product/:id/edit" element={<ProductForm />} />
+                        </Route>
 
                         <Route path="*" element={<NotFound />} />
                     </Routes>
