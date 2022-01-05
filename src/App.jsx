@@ -8,6 +8,8 @@ import AboutName from './components/AboutName';
 import NotFoundAbout from './components/NotFoundAbout';
 import ProductDetails from './components/ProductDetails';
 import ContactList from './components/ContactList';
+import ProductList from './components/ProductList';
+
 
 
 const App = () => {
@@ -29,6 +31,8 @@ const App = () => {
                         <Route path="/contact/" element={<Contact />} />
                         <Route path="/admin/contact/:id/edit" element={<Contact />} />
                         <Route path="/admin/contact" element={<ContactList />} />
+
+                        <Route path="/admin/product" element={<ProductList />} />
 
                         <Route path="*" element={<NotFound />} />
                     </Routes>
