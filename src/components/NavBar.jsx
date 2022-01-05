@@ -24,6 +24,11 @@ const NavBar = () => {
                         <Link className="nav-link" to="/admin/product">Admin Product</Link>
                     </li>
                 </ul>
+                <ul className="navbar-nav d-flex">
+                    <li className="nav-item">
+                        <h5><Link className="nav-link" to="/cart">Panier</Link></h5>
+                    </li>
+                </ul>
             </div>
         </nav>
     )

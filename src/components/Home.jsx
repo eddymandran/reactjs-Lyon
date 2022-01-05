@@ -10,6 +10,11 @@ const Home = () => {
             .then(products => setProducts(products))
             .catch(error => console.error(error));
     }, [])
+
+    const handleBuyButton = (params) => {
+        console.log('handleBuyButton in Home component! ', params);
+    }
+
     return (
         products.map((product, index) => {
             return (
@@ -18,6 +23,8 @@ const Home = () => {
                       subtitle={product.price}
                       cta={`/product/${product.id}`}
                       picture={product.picture}
+                      handleBuyButton={handleBuyButton}
+                      identifier={product.id}
                 />
             )
         })
