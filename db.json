@@ -47,6 +47,13 @@
       "price": 100,
       "stock": 15,
       "picture": "https://upload.wikimedia.org/wikipedia/commons/1/17/World%27s_First_Computer%2C_the_Electronic_Numerical_Integrator_and_Calculator_%28ENIAC%29.gif"
+    },
+    {
+      "name": "gamer pc",
+      "price": "22",
+      "stock": "fdgfdgfdgfd",
+      "picture": "https://d10mhq06fikmnr.cloudfront.net/catalog/product/thumbnail/bbd89f27fa66af0f1d7e9216c155c386/image/500x500/000/80/m/b/mb520_rgb_main_pink-min.jpg",
+      "id": 5
     }
   ]
 }

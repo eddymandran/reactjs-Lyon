@@ -1,9 +1,17 @@
-import data from '../product';
+import { useEffect, useState } from 'react';
 import Card from './Card';
 
 const Home = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5100/product')
+            .then(response => response.json())
+            .then(products => setProducts(products))
+            .catch(error => console.error(error));
+    }, [])
     return (
-        data.product.map((product, index) => {
+        products.map((product, index) => {
             return (
                 <Card key={index}
                       title={product.name}
