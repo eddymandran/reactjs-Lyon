@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const ContactList = () => {
     const [contacts, setContacts] = useState([])
 
+    /** @todo async */
     useEffect(() => {
         fetch('http://localhost:5100/contact')
             .then(response => response.json())
@@ -11,6 +12,18 @@ const ContactList = () => {
                 setContacts(contacts);
             });
     }, []);
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5100/contact/${id}`, {
+            headers: { 'Content-Type': 'application/json' },
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(() => {
+                setContacts(contacts.filter(contact => contact.id !== id));
+            })
+            .catch(error => console.error(error));
+    }
 
     return (
         <table className="table">
@@ -25,13 +38,13 @@ const ContactList = () => {
             <tbody>
             {contacts.map(contact => {
                 return (
-                    <tr>
+                    <tr key={contact.id}>
                         <th scope="row">{contact.id}</th>
                         <td>{contact.name}</td>
                         <td>{contact.email}</td>
                         <td>
                             <Link className="btn btn-primary" to={`/contact/${contact.id}/edit`}>Edit</Link>
-                            <button className="btn btn-danger">Delete</button>
+                            <button className="btn btn-danger" onClick={() => {handleDelete(contact.id)}}>Delete</button>
                         </td>
                     </tr>
                 );
