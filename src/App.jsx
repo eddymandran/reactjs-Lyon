@@ -7,6 +7,8 @@ import NavBar from './components/NavBar';
 import AboutName from './components/AboutName';
 import NotFoundAbout from './components/NotFoundAbout';
 import ProductDetails from './components/ProductDetails';
+import ContactList from './components/ContactList';
+
 
 const App = () => {
     return (
@@ -25,6 +27,7 @@ const App = () => {
                         <Route path="/product/:id" element={<ProductDetails />} />
 
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/admin/contact" element={<ContactList />} />
 
                         <Route path="*" element={<NotFound />} />
                     </Routes>

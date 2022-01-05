@@ -2,18 +2,27 @@ import { useState } from "react";
 
 const Contact = () => {
 
-    let [form, setForm] = useState({ name: 'Khalid', email: 'email@email.com', message: '' });
+    let [form, setForm] = useState({ name: 'Khalid', email: '', message: '' });
 
     const handleSubmit = (event) => {
-        event.preventDefault()
-        console.log(form);
+        event.preventDefault();
+
+        fetch('http://localhost:5100/contact', {
+            headers: { 'Content-Type': 'application/json' },
+            method: 'POST',
+            body: JSON.stringify(form)
+        })
+            .then(response => response.json())
+            .then(() => {
+                setForm({ name: 'Khalid', email: '', message: '' });
+            })
+            .catch(error => console.error(error));
     }
 
     const handleChange = (event) => {
         const newData = { ...form };
-        const name = event.target.name;
 
-        newData[name] = event.target.value;
+        newData[event.target.name] = event.target.value;
 
         setForm(newData);
     }
@@ -45,3 +54,8 @@ const Contact = () => {
 }
 
 export default Contact;
+
+
+/** @info TP */
+/** @todo faire le cRUD de contact */
+/** @info STATE is immutable */

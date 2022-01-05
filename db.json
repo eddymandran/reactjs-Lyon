@@ -1,19 +1,16 @@
 {
-  "posts": [
+  "contact": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "Khalid",
+      "email": "email@email.fr",
+      "message": "dfdsf",
+      "id": 1
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Khalid",
+      "email": "d@ds.dsd",
+      "message": "dsfdfsdf",
+      "id": 2
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
