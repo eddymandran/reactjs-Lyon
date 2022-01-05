@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Contact = () => {
     const params = useParams();
@@ -36,11 +36,10 @@ const Contact = () => {
             .then(response => response.json())
             .then(contact => { setForm(contact) })
             .catch(error => console.error(error));
-    }, []);
+    }, [params.id]);
 
     const handleEdit = (event) => {
         event.preventDefault();
-        console.log('edit');
 
         fetch(`http://localhost:5100/contact/${params.id}`, {
             headers: { 'Content-Type': 'application/json' },
@@ -56,6 +55,8 @@ const Contact = () => {
 
     return (
         <form onSubmit={params.id ? handleEdit : handleCreate}>
+            <Link to="/admin/contact/2/edit">Edit contact 2</Link>
+            <Link to="/admin/contact/3/edit">Edit contact 3</Link>
             <div>
                 <label htmlFor="name" className="form-label">Name</label>
                 <input type="text" id="name" name="name" className="form-control"

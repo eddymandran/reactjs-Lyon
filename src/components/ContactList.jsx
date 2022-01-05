@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 const ContactList = () => {
     const [contacts, setContacts] = useState([])
 
-    /** @todo async */
     useEffect(() => {
-        fetch('http://localhost:5100/contact')
-            .then(response => response.json())
-            .then(contacts => {
-                setContacts(contacts);
-            });
+        const fetchData = async () => {
+            const response = await fetch('http://localhost:5100/contact')
+            const contacts = await response.json()
+            setContacts(contacts);
+        }
+
+        fetchData();
     }, []);
 
     const handleDelete = (id) => {
