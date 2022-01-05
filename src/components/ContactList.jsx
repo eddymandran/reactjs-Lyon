@@ -43,7 +43,7 @@ const ContactList = () => {
                         <td>{contact.name}</td>
                         <td>{contact.email}</td>
                         <td>
-                            <Link className="btn btn-primary" to={`/contact/${contact.id}/edit`}>Edit</Link>
+                            <Link className="btn btn-primary" to={`/admin/contact/${contact.id}/edit`}>Edit</Link>
                             <button className="btn btn-danger" onClick={() => {handleDelete(contact.id)}}>Delete</button>
                         </td>
                     </tr>
