@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Card from './Card';
 
-const Home = () => {
+const Home = ({handleBuyButton}) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -10,10 +10,6 @@ const Home = () => {
             .then(products => setProducts(products))
             .catch(error => console.error(error));
     }, [])
-
-    const handleBuyButton = (params) => {
-        console.log('handleBuyButton in Home component! ', params);
-    }
 
     return (
         products.map((product, index) => {

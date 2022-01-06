@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 
 const Contact = () => {
     const params = useParams();
@@ -55,8 +55,6 @@ const Contact = () => {
 
     return (
         <form onSubmit={params.id ? handleEdit : handleCreate}>
-            <Link to="/admin/contact/2/edit">Edit contact 2</Link>
-            <Link to="/admin/contact/3/edit">Edit contact 3</Link>
             <div>
                 <label htmlFor="name" className="form-label">Name</label>
                 <input type="text" id="name" name="name" className="form-control"

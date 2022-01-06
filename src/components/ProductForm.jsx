@@ -1,6 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import { useNavigate } from "react-router-dom";
 
 const ProductForm = () => {
     const params = useParams();
@@ -17,7 +16,7 @@ const ProductForm = () => {
         })
             .then(response => response.json())
             .then(() => {
-                setForm({ name: 'Khalid', email: '', message: '' });
+                setForm({name: '', price: '', stock: '', picture: ''});
                 navigate('/admin/product')
             })
             .catch(error => console.error(error));
