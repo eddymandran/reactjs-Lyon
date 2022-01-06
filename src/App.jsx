@@ -12,6 +12,8 @@ import ProductList from './components/ProductList';
 import ProductForm from './components/ProductForm';
 import { useEffect, useState } from 'react';
 import Cart from './components/Cart';
+import Payment from './components/Payment';
+import DeliveryAddress from './components/DeliveryAddress';
 
 const App = () => {
     const [cart, setCart] = useState([]);
@@ -21,6 +23,14 @@ const App = () => {
 
         localStorage.setItem('cart', JSON.stringify(cart))
     }, [cart]);
+
+    useEffect(() => {
+        const cartInLocalStorage = localStorage.getItem('cart');
+
+        if (!cartInLocalStorage) return;
+
+        setCart(JSON.parse(cartInLocalStorage));
+    }, []);
 
     const handleBuyButton = (id) => {
         let cartItem = {};
@@ -41,13 +51,9 @@ const App = () => {
         setCart(newCart);
     }
 
-    useEffect(() => {
-        const cartInLocalStorage = localStorage.getItem('cart');
-
-        if (!cartInLocalStorage) return;
-
-        setCart(JSON.parse(cartInLocalStorage));
-    }, []);
+    const resetCart = () => {
+        setCart([]);
+    }
 
     return (
         <>
@@ -75,6 +81,10 @@ const App = () => {
                         <Route path="/admin/product/:id/edit" element={<ProductForm />} />
 
                         <Route path="/cart/" element={<Cart cartInLocalStorage={cart} />} />
+
+                        <Route path="/delivery-address/" element={<DeliveryAddress />} />
+
+                        <Route path="/payment/" element={<Payment cartInLocalStorage={cart} resetCart={resetCart} />} />
 
                         <Route path="*" element={<NotFound />} />
                     </Routes>

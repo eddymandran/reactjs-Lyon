@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import {useNavigate} from 'react-router-dom';
 
 const Cart = ({ cartInLocalStorage }) => {
+    const navigate = useNavigate()
     const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
 
@@ -51,6 +53,11 @@ const Cart = ({ cartInLocalStorage }) => {
             </table>
 
             <h3 className="text-center">Total : {total} €</h3>
+
+            <hr />
+            <button className="btn btn-primary btn-lg" onClick={() => { navigate('/delivery-address') }}>
+                Valider le panier
+            </button>
         </>
     )
 }
