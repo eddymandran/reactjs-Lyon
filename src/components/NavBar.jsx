@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({cart}) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,9 @@ const NavBar = () => {
                 </ul>
                 <ul className="navbar-nav d-flex">
                     <li className="nav-item">
-                        <h5><Link className="nav-link" to="/cart">Panier</Link></h5>
+                        <Link className="btn btn-primary" to="/cart">
+                            Panier {cart.length > 0 && <span className="badge bg-light text-dark">{cart.length}</span>}
+                        </Link>
                     </li>
                 </ul>
             </div>

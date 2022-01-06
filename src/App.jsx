@@ -11,6 +11,7 @@ import ContactList from './components/ContactList';
 import ProductList from './components/ProductList';
 import ProductForm from './components/ProductForm';
 import { useEffect, useState } from 'react';
+import Cart from './components/Cart';
 
 const App = () => {
     const [cart, setCart] = useState([]);
@@ -40,9 +41,18 @@ const App = () => {
         setCart(newCart);
     }
 
+    useEffect(() => {
+        const cartInLocalStorage = localStorage.getItem('cart');
+
+        if (!cartInLocalStorage) return;
+
+        setCart(JSON.parse(cartInLocalStorage));
+    }, []);
+
     return (
         <>
-            <NavBar />
+            <NavBar cart={cart} />
+
             <div className="container">
                 <div className="row">
                     <Routes>
@@ -63,6 +73,8 @@ const App = () => {
 
                         <Route path="/admin/product/new" element={<ProductForm />} />
                         <Route path="/admin/product/:id/edit" element={<ProductForm />} />
+
+                        <Route path="/cart/" element={<Cart cartInLocalStorage={cart} />} />
 
                         <Route path="*" element={<NotFound />} />
                     </Routes>
